@@ -21,15 +21,20 @@ $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 $objPHPExcel2 = new PHPExcel();
 
 $Reader = PHPExcel_IOFactory::createReaderForFile($inputFileName);
-$Reader->setReadDataOnly(true);
+//$Reader->setReadDataOnly(true);
 
 $objXLS = $Reader->load($inputFileName);
+
+$objXLS->setActiveSheetIndex(0)
+    ->setCellValue('A3', 42);
+
 
 //To read a value from cell A1 in sheet 0 (first sheet) use this code:
 
 $value = $objXLS->getSheet(0)->getCell('A1')->getValue();
 // or to get calculated value, if there is a formula, etc
 $value = $objXLS->getSheet(0)->getCell('A1')->getCalculatedValue();
+
 
 
         // Redirect output to a client’s web browser (Excel5)
