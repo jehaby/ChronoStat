@@ -32,20 +32,6 @@ $value = $objXLS->getSheet(0)->getCell('A1')->getValue();
 $value = $objXLS->getSheet(0)->getCell('A1')->getCalculatedValue();
 
 
-
-
-//$objXLS->getSheet(0)->setCellValue('A3', 10);
-
-//$objPHPExcel -> setActiveSheetIndex(0)
-//        -> setCellValue('A2', '666')
-//        -> setCellValue('A3', 'wtf');
-//
-//
-//for ($i = 2; $i < 100; $i++) {
-//    $objPHPExcel ->getActiveSheet()
-//            ->setCellValue('A' . $i, ''. $i * $i);
-//    }
-
         // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment;filename="01simple.xls"');
