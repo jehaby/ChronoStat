@@ -25,8 +25,7 @@ $Reader = PHPExcel_IOFactory::createReaderForFile($inputFileName);
 
 $objXLS = $Reader->load($inputFileName);
 
-$objXLS->setActiveSheetIndex(0)
-    ->setCellValue('A3', 42);
+$objXLS->setActiveSheetIndex(0)->setCellValue('A3', 42);
 
 
 //To read a value from cell A1 in sheet 0 (first sheet) use this code:
