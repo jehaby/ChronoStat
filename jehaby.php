@@ -2,10 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: urf
- * Date: 9/1/14
- * Time: 9:02 AM
+ * Date: 9/2/14
+ * Time: 5:39 PM
  */
 
-$a = 42;
-echo "bbb", $a, "argh";
 
+class T {
+
+
+
+}
+
+$t = new T();
+
+$a = [];
+
+echo $t->test;
+
+echo $a[10];
