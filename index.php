@@ -45,7 +45,7 @@ function echo_td($str) {
         ?>
         </tbody>
     </table>
-
+// Do forms.
 </div>
 </body>
 

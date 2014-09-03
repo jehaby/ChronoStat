@@ -1,22 +1,50 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: urf
- * Date: 9/2/14
- * Time: 5:39 PM
- */
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 
-class T {
-
-
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $f = fopen('files/f.txt', 'r+');
+    foreach ($_POST as $p) {
+        fwrite($f, $p . "\n");
+    }
+    fclose($f);
 }
 
-$t = new T();
+$f = fopen('files/f.txt', 'r');
+$lines = [];
 
-$a = [];
+if ($f) {
+    while (($buffer = fgets($f, 4096)) !== false) {
+        if ($buffer = trim($buffer))
+            $lines[] = $buffer;
+    }
+    if (!feof($f)) {
+        echo "Error: unexpected fgets() fail\n";
+    }
+}
+fclose($f);
 
-echo $t->test;
+?>
 
-echo $a[10];
+
+<html>
+<body>
+
+
+<form action="jehaby.php" method="POST">
+    <?php
+    foreach ($lines as $line) {
+        echo "<p><input type='text' value='$line' name='$line'></p>";
+    }
+    echo "<p><input type='submit' value='Ok'></p>";
+    ?>
+</form>
+</body>
+
+</html>
+
+
+
+<?php
