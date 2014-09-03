@@ -25,13 +25,10 @@ if ($f) {
     }
 }
 fclose($f);
-
 ?>
-
 
 <html>
 <body>
-
 
 <form action="jehaby.php" method="POST">
     <?php
