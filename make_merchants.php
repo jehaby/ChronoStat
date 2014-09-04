@@ -25,5 +25,7 @@ foreach ($document->merchant as $m) {
         }
         $declines[$decline->getName()] = $decline . $attr;
     }
-    $merchants[] = new Merchant($m->name, $m->percent, $declines);
+    $merchants[(string)$m->name] = new Merchant($m->name, $m->percent, $declines);
 }
+
+//var_dump($merchants);

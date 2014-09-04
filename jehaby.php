@@ -4,6 +4,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
+
+echo $_SERVER['PHP_SELF'] . '<br><br>';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $f = fopen('files/f.txt', 'r+');
     foreach ($_POST as $p) {
@@ -30,7 +33,7 @@ fclose($f);
 <html>
 <body>
 
-<form action="jehaby.php" method="POST">
+<form method="POST">
     <?php
     foreach ($lines as $line) {
         echo "<p><input type='text' value='$line' name='$line'></p>";
