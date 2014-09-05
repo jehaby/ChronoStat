@@ -1,10 +1,18 @@
 <?php
-include_once 'make_merchants.php';
+//error_reporting(E_ALL);
+//ini_set('display_errors', TRUE);
+//ini_set('display_startup_errors', TRUE);
+include 'Merchant.php';
+
+if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (array_key_exists('merchants', $_POST))) {
+    $merchants = unserialize($_POST['merchants']);
+} else {
+    include_once 'make_merchants.php';
+}
 
 $mapping = ['emitent', 'tech', 'chrono', 'filling', 'didntget', 'refund', 'monthly', 'wrong', 'others'];
 
 function echo_td($val, $name) {
-    //$name = !$name ? $val : $name;
     printf("<td> <input type='text' name='%s' value='%s'></td> \n", $name, $val);
 }
 ?>
@@ -20,21 +28,12 @@ function echo_td($val, $name) {
         <table>
             <thead>
             <tr>
-                <!--            <td>Decline Эмитент</td>-->
-                <!--            <td>Decline Тех.причина</td>-->
-                <!--            <td>Decline ChronoMethod</td>-->
-                <!--            <td>Затруднение в заполнении платежки</td>-->
-                <!--            <td>Не получил товар/услугу</td>-->
-                <!--            <td>Возврат средств</td>-->
-                <!--            <td>Ежемесячный платеж</td>-->
-                <!--            <td>Ошибочный перевод</td>-->
-                <!--            <td>Другое</td>-->
-                <!--            <td>Фирма</td>-->
-                <!--            <td>Общий процент</td>-->
                 <?php
                 foreach($mapping as $d) {
                     echo "<td>{$d}</td>";
                 }
+                echo "<td>Percent Total</td>";
+                echo "<td>Merchant name</td>";
                 ?>
             </tr>
             </thead>
@@ -46,18 +45,31 @@ function echo_td($val, $name) {
                 for ($i = 0; $i < count($mapping); $i++) {
                     echo_td($merchant -> declines[$mapping[$i]], $merchant -> name . '_' . $i);
                 }
-                echo_td($merchant -> name, $merchant -> name . '_name');
                 echo_td($merchant -> percent, $merchant -> name . '_percent');
+                echo_td($merchant -> name, $merchant -> name . '_name');
                 echo '</tr>';
             }
+
+            echo '<tr>';  // last row for adding record
+            for ($i = 0; $i < count($mapping); $i++) {
+                echo_td('', "adding_{$i}");
+            }
+            echo_td('', "adding_percent");
+            echo_td('', "adding_name");
+            echo '</tr>';
             ?>
             </tbody>
 
         </table>
-
-        <input type="submit">
+        <input type='hidden' name='merchants' value="<?php echo htmlentities(serialize($merchants)); ?>">
+        <input type='hidden' name='mapping' value="<?php echo htmlentities(serialize($mapping)); ?>">
+        <input type="submit" value="Обновить правила">
     </form>
-    // Do forms.
+    <form action="make_xml.php" method="POST">
+        <input type='hidden' name='merchants' value="<?php echo htmlentities(serialize($merchants)); ?>">
+        <input type="submit" value="Make XML">
+    </form>
+
 </div>
 </body>
 

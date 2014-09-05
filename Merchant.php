@@ -11,8 +11,8 @@ class Merchant {
 
 
     function __construct($name, $percent, array $declines) {
-        $this->name = $name;
-        $this->percent = $percent;
+        $this->name = (string) $name;
+        $this->percent = (int) $percent;
         $this->declines = $declines;
     }
 

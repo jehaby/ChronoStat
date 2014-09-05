@@ -12,7 +12,7 @@ include_once 'Merchant.php';
 //ini_set('display_startup_errors', TRUE);
 
 
-$document = simplexml_load_file('merchants.xml');
+$document = simplexml_load_file('files/merchants.xml');
 
 $merchants = [];
 

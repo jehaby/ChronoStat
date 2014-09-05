@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
+echo (('string'));
+
 
 echo $_SERVER['PHP_SELF'] . '<br><br>';
 
@@ -41,6 +43,8 @@ fclose($f);
     echo "<p><input type='submit' value='Ok'></p>";
     ?>
 </form>
+
+
 </body>
 
 </html>
