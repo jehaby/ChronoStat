@@ -21,6 +21,7 @@ function echo_td($val, $name) {
 <head>
     <title>ChronoStat</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="files/styles.css" type="text/css">
 </head>
 <body>
 <div id="content">

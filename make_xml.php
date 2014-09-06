@@ -8,3 +8,5 @@
 include_once 'Merchant.php';
 
 var_dump(unserialize($_POST['merchants']));
+
+
