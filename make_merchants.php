@@ -5,7 +5,7 @@
  * Date: 9/1/14
  * Time: 9:02 AM
  */
-include_once 'Merchant.php'
+include_once 'Merchant.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
