@@ -5,9 +5,9 @@
  * Date: 9/5/14
  * Time: 6:28 PM
  */
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
+//error_reporting(E_ALL);
+//ini_set('display_errors', TRUE);
+//ini_set('display_startup_errors', TRUE);
 
 include 'Merchant.php';
 
@@ -16,6 +16,8 @@ $merchants =  unserialize($_POST['merchants']);
 
 //var_dump($merchants);
 header('Content-Type: text/xml');
+
+ob_start();
 
 echo '<merchants>';
 
@@ -26,9 +28,10 @@ foreach ($merchants as $merchant) {
     echo "<declines>\n";
     foreach ($merchant->declines as $decline => $percent) {
         if ($decline == 'others') { //bug!
-            $m = explode(' ', $percent, 2); // $m[0] -- percent, $m[] -- text
-            if (count($m) == 2)
-                echo "<others text='{$m[1]}'>" . $m[0] . "</others>\n";
+            //$m = explode(' ', $percent, 2); // $m[0] -- percent, $m[] -- text
+            list($others_percent, $text) = explode(' ', $percent, 2); //
+            if ($others_percent && $percent)
+                echo "<others text='{$text}'>" . $others_percent . "</others>\n";
         } else {
             if (!$percent) $percent = ' ';
             echo "<{$decline}>" . $percent . "</{$decline}>\n";
@@ -39,6 +42,8 @@ foreach ($merchants as $merchant) {
 }
 
 echo "</merchants>\n";
+
+file_put_contents('files/output.xml', ob_get_clean());
 
 
 

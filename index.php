@@ -66,6 +66,10 @@ function echo_td($val, $name) {
         <input type='hidden' name='mapping' value="<?php echo htmlentities(serialize($mapping)); ?>">
         <input type="submit" value="Обновить правила">
     </form>
+    <form action="make_merchants.php" method="GET">
+        <input type="hidden" name="use_merchantsxml" value="1">
+        <input type="submit" value="Use merchants.xml">
+    </form>
     <form action="make_xml.php" method="POST">
         <input type='hidden' name='merchants' value="<?php echo htmlentities(serialize($merchants)); ?>">
         <input type="submit" value="Make XML">
