@@ -51,6 +51,7 @@ if ($new_merchant -> name) {
     $merchants[$new_merchant -> name] = $new_merchant;
 }
 
+print_r($merchants);
 
 ?>
 

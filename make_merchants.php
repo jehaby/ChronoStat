@@ -10,10 +10,8 @@ include_once 'Merchant.php';
 //error_reporting(E_ALL);
 //ini_set('display_errors', TRUE);
 //ini_set('display_startup_errors', TRUE);
-//
 
-
-if (!$_GET['use_merchantsxml']) {
+if ($_POST['use_merchantsxml']) {
     $document = simplexml_load_file('files/merchants.xml');
 } else {
     $document = simplexml_load_file('files/output.xml');

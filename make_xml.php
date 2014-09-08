@@ -12,7 +12,6 @@
 include 'Merchant.php';
 
 $merchants =  unserialize($_POST['merchants']);
-//$mapping =  unserialize($_POST['mapping']);
 
 //var_dump($merchants);
 header('Content-Type: text/xml');
@@ -27,13 +26,12 @@ foreach ($merchants as $merchant) {
     echo "<percent>" . $merchant->percent . "</percent>\n";
     echo "<declines>\n";
     foreach ($merchant->declines as $decline => $percent) {
-        if ($decline == 'others') { //bug!
-            //$m = explode(' ', $percent, 2); // $m[0] -- percent, $m[] -- text
-            list($others_percent, $text) = explode(' ', $percent, 2); //
+        if ($decline == 'others') {
+            list($others_percent, $text) = explode(' ', $percent, 2);
             if ($others_percent && $percent)
                 echo "<others text='{$text}'>" . $others_percent . "</others>\n";
         } else {
-            if (!$percent) $percent = ' ';
+            if (!$percent) $percent = '';
             echo "<{$decline}>" . $percent . "</{$decline}>\n";
         }
     }

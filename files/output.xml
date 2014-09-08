@@ -49,7 +49,7 @@
 <declines>
 <emitent>10</emitent>
 <wrong>40</wrong>
-<others text=''>40</others>
+<others text='Wrong link'>40</others>
 <tech> </tech>
 <chrono> </chrono>
 <filling> </filling>
@@ -86,6 +86,37 @@
 <refund> </refund>
 <monthly> </monthly>
 <wrong> </wrong>
+</declines>
+</merchant>
+
+<merchant>
+<name>qwerty</name>
+<percent>6</percent>
+<declines>
+<emitent>30</emitent>
+<tech> </tech>
+<chrono>70</chrono>
+<filling> </filling>
+<didntget> </didntget>
+<refund> </refund>
+<monthly> </monthly>
+<wrong> </wrong>
+</declines>
+</merchant>
+
+<merchant>
+<name>Herbalife</name>
+<percent>5</percent>
+<declines>
+<emitent>45</emitent>
+<tech> </tech>
+<chrono>45</chrono>
+<filling> </filling>
+<didntget> </didntget>
+<refund> </refund>
+<monthly> </monthly>
+<wrong> </wrong>
+<others text='Stupid idiots'>10</others>
 </declines>
 </merchant>
 
