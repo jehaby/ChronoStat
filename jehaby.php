@@ -4,11 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
-$arr = ['a', 'b', '43', 'e'];
 
-var_dump($GLOBALS);
+$arr = range(1, 10);
 
-extract($arr, EXTR_PREFIX_ALL, 'arr');
+end($arr);
+foreach($arr as $k => $v) {
+    if ($v % 3 == 0){
+        unset($arr[$k]);
+    }
+    $arr[$k*$k] = 0;
+}
 
-echo "<br>";
-var_dump($GLOBALS);
+print_r($arr);
