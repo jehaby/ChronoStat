@@ -34,6 +34,7 @@ require_once $inc . 'phpxls/Classes/PHPExcel.php';
 include $inc . 'krumo/class.krumo.php';
 
 krumo::enable();
+krumo::disable();
 
 $inputFileName = 'files/stat.xlsx';
 
@@ -85,35 +86,43 @@ function cook_merchants($merchants) {
 function pick_random_element($arr) {
     end($arr);
     $total_percent = key($arr);
-    $random_int = rand(0, $total_percent);
+    $random_int = rand(0, $total_percent -1);
     foreach($arr as $k => $v) {
         if ($random_int < $k)
             return $v;
     }
+    krumo($total_percent, $random_int);
+    krumo($arr);
+    return "something went wrong";
+
 }
 
-$merchants = cook_merchants($merchants);
-
-function write_declines_to_table() {
-    global $total_declines, $merchants, $objXLS, $mapping;
+function write_declines_to_table($total_declines, $merchants, $objXLS, $mapping) {
     for ($i = 3; $i < $total_declines + 3; $i++) {
         $merch = pick_random_element($merchants);
         krumo($merch);
         $dec = pick_random_element($merch -> declines);
+        krumo($dec);
+//        echo "{$merch -> name} : {$dec[1]} <br>";
         $objXLS->setActiveSheetIndex(0)->setCellValue($mapping[$dec[1]] . $i, 1);
-
-//        $objXLS->setActiveSheetIndex(0)->setCellValue("L" . $i, $merch -> name);
+        $objXLS->setActiveSheetIndex(0)->setCellValue("L" . $i, $merch -> name);
     }
 }
-write_declines_to_table();
+
+
+krumo($merchants);
+$merchants = cook_merchants($merchants);
+
+
+write_declines_to_table($total_declines, $merchants, $objXLS, $mapping);
 
 // Redirect output to a client’s web browser (Excel5)
-//header('Content-Type: application/vnd.ms-excel');
-//header('Content-Disposition: attachment;filename="01simple.xls"');
-//header('Cache-Control: max-age=0');
-//
-//$objWriter = PHPExcel_IOFactory::createWriter($objXLS, 'Excel5');
-//$objWriter->save('php://output');
-//exit;
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="01simple.xls"');
+header('Cache-Control: max-age=0');
+
+$objWriter = PHPExcel_IOFactory::createWriter($objXLS, 'Excel5');
+$objWriter->save('php://output');
+exit;
 ?>
 

@@ -120,4 +120,19 @@
 </declines>
 </merchant>
 
+<merchant>
+<name>mamba</name>
+<percent>5</percent>
+<declines>
+<emitent>20</emitent>
+<tech></tech>
+<chrono>30</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly>50</monthly>
+<wrong></wrong>
+</declines>
+</merchant>
+
 </merchants>

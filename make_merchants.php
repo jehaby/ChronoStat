@@ -11,7 +11,7 @@ include_once 'Merchant.php';
 //ini_set('display_errors', TRUE);
 //ini_set('display_startup_errors', TRUE);
 
-if ($_POST['use_merchantsxml']) {
+if (($_SERVER['REQUEST_METHOD'] == 'POST') && $_POST['use_merchantsxml']) {
     $document = simplexml_load_file('files/merchants.xml');
 } else {
     $document = simplexml_load_file('files/output.xml');
