@@ -10,8 +10,6 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (array_key_exists('merchants', $_
     include_once 'make_merchants.php';
 }
 
-//print_r($merchants);
-
 $mapping = ['emitent', 'tech', 'chrono', 'filling', 'didntget', 'refund', 'monthly', 'wrong', 'others'];
 
 function echo_td($val, $name) {
@@ -71,13 +69,13 @@ function echo_td($val, $name) {
     <?php
     $filenames = ["make_merchants.php", "make_xml.php", "output_xls.php"];
     foreach($filenames as $filename) { ?>
-    <form action="<?php echo $filename?>" method="POST">
-        <input type="hidden" name="use_merchantsxml" value="1">
-        <input type='hidden' name='merchants' value="<?php echo htmlentities(serialize($merchants)); ?>">
-        <input type="submit" value="<?php echo $filename?>">
-    </form>
+        <p><form action="<?php echo $filename?>" method="POST">
+            <input type="hidden" name="use_merchantsxml" value="1">
+            <input type='hidden' name='merchants' value="<?php echo htmlentities(serialize($merchants)); ?>">
+            <?php if ($filename === "output_xls.php") echo '<input type="text" name="total_calls">'?>
+            <input type="submit" value="<?php echo $filename?>">
+        </form></p>
     <?php } ?>
-
 </div>
 </body>
 

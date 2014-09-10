@@ -21,27 +21,21 @@ $mapping = [
     "others" => "K"
 ];
 
-include_once 'helper_functions.php';
-
-
 include "Merchant.php";
-include "Decline.php";
 $merchants =  unserialize($_POST['merchants']);
+$total_calls = (int) $_POST['total_calls'];
 
 $inc = '/home/urf/Dropbox/myprograms/php/libs/';
 require_once $inc . 'phpxls/Classes/PHPExcel.php';
-// put your code here
+
 include $inc . 'krumo/class.krumo.php';
 
-krumo::enable();
+krumo::disable();
 
 $inputFileName = 'files/stat.xlsx';
 
 $Reader = PHPExcel_IOFactory::createReaderForFile($inputFileName);
 $objXLS = $Reader->load($inputFileName);
-
-$merchant_percent_sum = 0;
-$total_declines = 50;
 
 function cook_declines($declines) {
     foreach($declines as $k => $v) {
@@ -52,7 +46,6 @@ function cook_declines($declines) {
         }
     }
     asort($declines);
-//    krumo($declines);
 
     $declines_percent_sum = 0;
     foreach($declines as $k => $v) {
@@ -70,7 +63,7 @@ function cook_merchants($merchants) {
             return ($m1->percent == $m2->percent) ? 0 : (($m1->percent < $m2->percent) ? -1 : 1);
         });
 
-    global $merchant_percent_sum;
+    $merchant_percent_sum = 0;
     foreach($merchants as $key => $merchant) {
         $merchant_percent_sum += $merchant->percent;
         $merchant -> declines = cook_declines($merchant -> declines);
@@ -85,7 +78,7 @@ function cook_merchants($merchants) {
 function pick_random_element($arr) {
     end($arr);
     $total_percent = key($arr);
-    $random_int = rand(0, $total_percent);
+    $random_int = rand(0, $total_percent - 1);
     foreach($arr as $k => $v) {
         if ($random_int < $k)
             return $v;
@@ -95,25 +88,24 @@ function pick_random_element($arr) {
 $merchants = cook_merchants($merchants);
 
 function write_declines_to_table() {
-    global $total_declines, $merchants, $objXLS, $mapping;
-    for ($i = 3; $i < $total_declines + 3; $i++) {
+    global $total_calls, $merchants, $objXLS, $mapping;
+    for ($i = 3; $i < $total_calls + 3; $i++) {
         $merch = pick_random_element($merchants);
         krumo($merch);
         $dec = pick_random_element($merch -> declines);
         $objXLS->setActiveSheetIndex(0)->setCellValue($mapping[$dec[1]] . $i, 1);
-
-//        $objXLS->setActiveSheetIndex(0)->setCellValue("L" . $i, $merch -> name);
+        $objXLS->setActiveSheetIndex(0)->setCellValue("L" . $i, $merch -> name);
     }
 }
 write_declines_to_table();
 
-// Redirect output to a client’s web browser (Excel5)
-//header('Content-Type: application/vnd.ms-excel');
-//header('Content-Disposition: attachment;filename="01simple.xls"');
-//header('Cache-Control: max-age=0');
-//
-//$objWriter = PHPExcel_IOFactory::createWriter($objXLS, 'Excel5');
-//$objWriter->save('php://output');
-//exit;
+ //Redirect output to a client’s web browser (Excel5)
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="01simple.xls"');
+header('Cache-Control: max-age=0');
+
+$objWriter = PHPExcel_IOFactory::createWriter($objXLS, 'Excel5');
+$objWriter->save('php://output');
+exit;
 ?>
 
