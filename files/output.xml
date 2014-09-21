@@ -1,10 +1,10 @@
 <merchants><merchant>
 <name>Transaero</name>
-<percent>30</percent>
+<percent>20</percent>
 <declines>
 <emitent>30</emitent>
 <chrono>30</chrono>
-<didntget>30</didntget>
+<didntget>20</didntget>
 <refund>5</refund>
 <filling>5</filling>
 <tech> </tech>
@@ -33,11 +33,11 @@
 <percent>30</percent>
 <declines>
 <emitent>30</emitent>
-<chrono>40</chrono>
-<refund>20</refund>
+<chrono>20</chrono>
+<refund>10</refund>
 <filling>10</filling>
 <tech> </tech>
-<didntget> </didntget>
+<didntget> 30</didntget>
 <monthly> </monthly>
 <wrong> </wrong>
 </declines>
@@ -49,7 +49,7 @@
 <declines>
 <emitent>10</emitent>
 <wrong>40</wrong>
-<others text='Wrong link'>40</others>
+<others text=''>10</others>
 <tech> </tech>
 <chrono> </chrono>
 <filling> </filling>
@@ -61,21 +61,6 @@
 
 <merchant>
 <name>Ecco</name>
-<percent>5</percent>
-<declines>
-<emitent>50</emitent>
-<tech> </tech>
-<chrono>50</chrono>
-<filling> </filling>
-<didntget> </didntget>
-<refund> </refund>
-<monthly> </monthly>
-<wrong> </wrong>
-</declines>
-</merchant>
-
-<merchant>
-<name>Citilink</name>
 <percent>5</percent>
 <declines>
 <emitent>50</emitent>
@@ -108,7 +93,7 @@
 <name>Herbalife</name>
 <percent>5</percent>
 <declines>
-<emitent>45</emitent>
+<emitent>60</emitent>
 <tech> </tech>
 <chrono>45</chrono>
 <filling> </filling>
@@ -116,7 +101,67 @@
 <refund> </refund>
 <monthly> </monthly>
 <wrong> </wrong>
-<others text='Stupid idiots'>10</others>
+<others text=''>10</others>
+</declines>
+</merchant>
+
+<merchant>
+<name>vseplatetzhi.ru</name>
+<percent>0</percent>
+<declines>
+<emitent>50</emitent>
+<tech></tech>
+<chrono>40</chrono>
+<filling></filling>
+<didntget>10</didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+</declines>
+</merchant>
+
+<merchant>
+<name>onlime.ru</name>
+<percent>0</percent>
+<declines>
+<emitent>30</emitent>
+<tech>30</tech>
+<chrono>30</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+</declines>
+</merchant>
+
+<merchant>
+<name>vseplatezhi</name>
+<percent>5</percent>
+<declines>
+<emitent>50</emitent>
+<tech></tech>
+<chrono>40</chrono>
+<filling></filling>
+<didntget>10</didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+</declines>
+</merchant>
+
+<merchant>
+<name>onlime</name>
+<percent>5</percent>
+<declines>
+<emitent>30</emitent>
+<tech>30</tech>
+<chrono>30</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
 </declines>
 </merchant>
 

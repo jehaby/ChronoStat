@@ -32,7 +32,9 @@ include $inc . 'krumo/class.krumo.php';
 
 krumo::disable();
 
-$inputFileName = 'files/stat.xlsx';
+$inputFileName = 'files/stat.xls';
+
+date_default_timezone_set('Europe/Moscow');
 
 $Reader = PHPExcel_IOFactory::createReaderForFile($inputFileName);
 $objXLS = $Reader->load($inputFileName);
