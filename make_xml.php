@@ -6,8 +6,8 @@
  * Time: 6:28 PM
  */
 //error_reporting(E_ALL);
-//ini_set('display_errors', TRUE);
-//ini_set('display_startup_errors', TRUE);
+ini_set('display_errors', FAlSE);
+ini_set('display_startup_errors', FALSE);
 
 include 'Merchant.php';
 

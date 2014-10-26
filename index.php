@@ -1,14 +1,22 @@
 <?php
+//error_reporting(E_OFF);
+//ini_set('display_errors', FALSE);
+//ini_set('display_startup_errors', FALSE);
+
 //error_reporting(E_ALL);
 //ini_set('display_errors', TRUE);
 //ini_set('display_startup_errors', TRUE);
+
 include 'Merchant.php';
+
 
 if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (array_key_exists('merchants', $_POST))) {
     $merchants = unserialize($_POST['merchants']);
 } else {
     include_once 'make_merchants.php';
 }
+
+
 
 $mapping = ['emitent', 'tech', 'chrono', 'filling', 'didntget', 'refund', 'monthly', 'wrong', 'others'];
 

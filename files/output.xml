@@ -1,36 +1,40 @@
 <merchants><merchant>
 <name>Transaero</name>
-<percent>20</percent>
+<percent>15</percent>
 <declines>
 <emitent>30</emitent>
-<chrono>30</chrono>
+<chrono>20</chrono>
 <didntget>20</didntget>
 <refund>5</refund>
 <filling>5</filling>
 <tech> </tech>
 <monthly> </monthly>
 <wrong> </wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 
 <merchant>
 <name>Yota</name>
-<percent>20</percent>
+<percent>15</percent>
 <declines>
 <emitent>40</emitent>
-<chrono>40</chrono>
+<chrono>20</chrono>
 <refund>15</refund>
 <filling>5</filling>
 <tech> </tech>
 <didntget> </didntget>
 <monthly> </monthly>
 <wrong> </wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 
 <merchant>
 <name>Fonbet</name>
-<percent>30</percent>
+<percent>20</percent>
 <declines>
 <emitent>30</emitent>
 <chrono>20</chrono>
@@ -40,6 +44,8 @@
 <didntget> 30</didntget>
 <monthly> </monthly>
 <wrong> </wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 
@@ -60,21 +66,6 @@
 </merchant>
 
 <merchant>
-<name>Ecco</name>
-<percent>5</percent>
-<declines>
-<emitent>50</emitent>
-<tech> </tech>
-<chrono>50</chrono>
-<filling> </filling>
-<didntget> </didntget>
-<refund> </refund>
-<monthly> </monthly>
-<wrong> </wrong>
-</declines>
-</merchant>
-
-<merchant>
 <name>qwerty</name>
 <percent>6</percent>
 <declines>
@@ -86,6 +77,8 @@
 <refund> </refund>
 <monthly> </monthly>
 <wrong> </wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 
@@ -147,6 +140,8 @@
 <refund></refund>
 <monthly></monthly>
 <wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 
@@ -162,6 +157,76 @@
 <refund></refund>
 <monthly></monthly>
 <wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
+</declines>
+</merchant>
+
+<merchant>
+<name>winlinebet</name>
+<percent>5</percent>
+<declines>
+<emitent>20</emitent>
+<tech>50</tech>
+<chrono>20</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
+</declines>
+</merchant>
+
+<merchant>
+<name>Baltbet</name>
+<percent>5</percent>
+<declines>
+<emitent>40</emitent>
+<tech></tech>
+<chrono>40</chrono>
+<filling>10</filling>
+<didntget></didntget>
+<refund>10</refund>
+<monthly></monthly>
+<wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
+</declines>
+</merchant>
+
+<merchant>
+<name>Ecco</name>
+<percent>5</percent>
+<declines>
+<emitent>50</emitent>
+<tech></tech>
+<chrono>50</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
+</declines>
+</merchant>
+
+<merchant>
+<name>Холодильник</name>
+<percent>5</percent>
+<declines>
+<emitent>80</emitent>
+<tech></tech>
+<chrono>20</chrono>
+<filling></filling>
+<didntget></didntget>
+<refund></refund>
+<monthly></monthly>
+<wrong></wrong>
+<br />
+<b>Notice</b>:  Undefined offset: 1 in <b>/home/webmaster/www/htdocs/chrono/make_xml.php</b> on line <b>30</b><br />
 </declines>
 </merchant>
 

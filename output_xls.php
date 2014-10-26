@@ -5,9 +5,17 @@
  * Date: 8/31/14
  * Time: 4:54 PM
  */
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
+//error_reporting(E_ALL);
+//ini_set('display_errors', TRUE);
+//ini_set('display_startup_errors', TRUE);
+
+
+
+if (file_exists('vendor/autoload.php')) {
+    require 'vendor/autoload.php';
+}
+
+Kint::enabled(false);
 
 $mapping = [
     "emitent" => "A",
@@ -25,12 +33,14 @@ include "Merchant.php";
 $merchants =  unserialize($_POST['merchants']);
 $total_calls = (int) $_POST['total_calls'];
 
-$inc = '/home/urf/Dropbox/myprograms/php/libs/';
-require_once $inc . 'phpxls/Classes/PHPExcel.php';
+d($merchants);
 
-include $inc . 'krumo/class.krumo.php';
-
-krumo::disable();
+//$inc = '/home/urf/Dropbox/myprograms/php/libs/';
+//require_once $inc . 'phpxls/Classes/PHPExcel.php';
+//
+//include $inc . 'krumo/class.krumo.php';
+//
+//krumo::disable();
 
 $inputFileName = 'files/stat.xls';
 
@@ -73,7 +83,7 @@ function cook_merchants($merchants) {
         unset($merchants[$key]);
     }
     $merchants = $n_merchants;
-    krumo($merchants);
+//    krumo($merchants);
     return $merchants;
 }
 
@@ -89,12 +99,18 @@ function pick_random_element($arr) {
 
 $merchants = cook_merchants($merchants);
 
+d($merchants);
+
 function write_declines_to_table() {
     global $total_calls, $merchants, $objXLS, $mapping;
     for ($i = 3; $i < $total_calls + 3; $i++) {
         $merch = pick_random_element($merchants);
-        krumo($merch);
+
+        d($merch);
+
         $dec = pick_random_element($merch -> declines);
+        d($dec[1]);
+        d($mapping[$dec[1]] . $i);
         $objXLS->setActiveSheetIndex(0)->setCellValue($mapping[$dec[1]] . $i, 1);
         $objXLS->setActiveSheetIndex(0)->setCellValue("L" . $i, $merch -> name);
     }
